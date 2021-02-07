@@ -26,14 +26,15 @@ class Login extends StatelessWidget{
         width: MediaQuery.of(context).size.width,
 
         child: Column(
+           mainAxisAlignment: MainAxisAlignment.center,
 
-          mainAxisAlignment: MainAxisAlignment.center,
-          
           children: <Widget>[
+
+            SizedBox(height: 60,),
 
             Text("Login", style: TextStyle(
               color: Colors.blue,
-              fontSize: 32,
+              fontSize: 35,
               fontWeight: FontWeight.w500,
             ), 
               textAlign: TextAlign.center,
@@ -91,7 +92,9 @@ class Login extends StatelessWidget{
 
             ElevatedButton(
               
+            
               onPressed:(){
+                
                 if(usuario.isEmpty || password.isEmpty){
                   Fluttertoast.showToast(
                     msg: "Campos vacíos, llenar todos los campos ",
@@ -105,25 +108,37 @@ class Login extends StatelessWidget{
                 } else{
                   print(usuario + password);
                   Fluttertoast.showToast(
-                  msg: "Usuario: "+usuario + " Contraseña: "+password,
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.BOTTOM,
-                  timeInSecForIosWeb: 5,
-                  backgroundColor: Colors.green,
-                  textColor: Colors.white,
-                  fontSize: 16.0,
-                );
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ListNames()),
-              );
+                    msg: "Usuario: "+usuario + " Contraseña: "+password,
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 5,
+                    backgroundColor: Colors.green,
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ListNames()),
+                  );
                 }
                 
               },
               child:Text(
                 'Iniciar sesión',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white,
+                ),
               ),
+
+              style: ButtonStyle(
+
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                        return Color.fromRGBO(
+                        42, 200, 194, 1.0); 
+                      },
+                    ),
+                  
+                ),
               
             ),
 
@@ -140,7 +155,7 @@ class Login extends StatelessWidget{
                       MaterialPageRoute(builder: (context) => InformationUp()),
                     );
                   },
-                color: Colors.blue,
+                color: Color.fromRGBO(42, 200, 194, 1.0),
                 child: Text('Back', style: TextStyle(color: Colors.white)),
               ),
             ),

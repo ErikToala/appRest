@@ -40,7 +40,7 @@ class InformationUp extends StatelessWidget{
                 MaterialPageRoute(builder: (context) => Login()),
               );
             },
-            color: Colors.lightBlue,
+            color: Color.fromRGBO(42, 200, 194, 1.0),
             child: Text('Next', style: TextStyle(color: Colors.white)),
           ),
           
